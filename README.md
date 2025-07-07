@@ -19,6 +19,8 @@ A Django-based web interface is also included for easier interaction.
 ![image](https://github.com/user-attachments/assets/1f22a485-6028-477f-b00b-2470a9985fb4)
 
 
+![image](https://github.com/user-attachments/assets/98177914-6103-45b9-b73b-be40c806d44a)
+
 ---
 
 ## 🧪 How It Works
