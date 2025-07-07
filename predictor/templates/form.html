@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Voice Diagnosis</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #d0e8f2, #f3c6f1, #e0bbf9);
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px 50px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 2px solid #d0eaff; /* pastel blue border */
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h2 {
+            margin-bottom: 25px;
+            color: #2b4f66;
+            font-size: 24px;
+        }
+
+        button {
+            background-color: #a3d5ff;
+            color: #fff;
+            border: none;
+            padding: 14px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(163, 213, 255, 0.5);
+        }
+
+        button:hover {
+            background-color: #7fcaff;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(127, 202, 255, 0.6);
+        }
+
+        p {
+            margin-top: 25px;
+            font-size: 18px;
+            color: #444;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🎤 Voice Diagnosis Assistant</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit">Start Diagnosis</button>
+        </form>
+        {% if result %}
+            <p><strong>🩺 {{ result }}</strong></p>
+        {% endif %}
+    </div>
+</body>
+</html>
